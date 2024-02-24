@@ -1,0 +1,2 @@
+# pecunia
+Cryptocurrenty automatic trader
