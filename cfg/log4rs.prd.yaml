@@ -1,0 +1,22 @@
+appenders:
+  stdout:
+    kind: console
+    encoder:
+      pattern: "{h({d(%Y-%m-%d %H:%M:%S)(utc)} - {l}: {m}{n})}"
+  logfile:
+    kind: file
+    path: "/var/opt/pecunia/pecunia.log"
+    encoder:
+      pattern: "{d(%Y-%m-%d %H:%M:%S)(utc)} - {h({l})}: {m}{n}"
+  logstash:
+    kind: logstash
+    hostname: {{HOST}}
+    port: {{PORT}}
+    buffer_size: 100
+    buffer_lifetime: 1s
+root:
+  level: info
+  appenders:
+    - stdout
+    - logfile
+    - logstash
